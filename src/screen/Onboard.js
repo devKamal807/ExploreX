@@ -1,17 +1,17 @@
 import {
-  Dimensions, 
-  ImageBackground, 
-  PixelRatio, 
-  SafeAreaView, 
-  StyleSheet, 
-  Text, 
-  TouchableOpacity, 
-  View 
+  Dimensions,
+  ImageBackground,
+  PixelRatio,
+  SafeAreaView,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
 } from 'react-native';
-import React, { useRef, useState } from 'react';
+import React, {useRef, useState} from 'react';
 import AppIntroSlider from 'react-native-app-intro-slider';
 
-const { width, height } = Dimensions.get('window');
+const {width, height} = Dimensions.get('window');
 const fontSize = size => PixelRatio.getFontScale() * size;
 
 const slides = [
@@ -24,18 +24,18 @@ const slides = [
   {
     id: '2',
     title: 'Discover New Places',
-    text: "Explore breathtaking destinations and unique experiences tailored just for you!",
+    text: 'Explore breathtaking destinations and unique experiences tailored just for you!',
     image: require('../assets/onboardimage/imgtwo.png'),
   },
   {
     id: '3',
     title: 'Start Your Journey',
-    text: "Join our community and make unforgettable memories!",
+    text: 'Join our community and make unforgettable memories!',
     image: require('../assets/onboardimage/imgthree.png'),
   },
 ];
 
-export default function Onboard({ navigation }) {
+export default function Onboard({navigation}) {
   const sliderRef = useRef(null);
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -44,8 +44,8 @@ export default function Onboard({ navigation }) {
       sliderRef.current.goToSlide(currentIndex + 1);
       setCurrentIndex(currentIndex + 1);
     } else {
-      console.log("Onboarding Finished");
-      navigation.navigate("GoogleLoginScreen");
+      console.log('Onboarding Finished');
+      navigation.navigate('GoogleLoginScreen');
     }
   };
 
@@ -54,11 +54,11 @@ export default function Onboard({ navigation }) {
     setCurrentIndex(slides.length - 1);
   };
 
-  const renderItem = ({ item }) => {
+  const renderItem = ({item}) => {
     return (
       <View style={styles.slide}>
         <ImageBackground source={item.image} style={styles.image}>
-            {currentIndex < slides.length - 1 && (
+          {currentIndex < slides.length - 1 && (
             <View style={styles.skipbtncontainer}>
               <TouchableOpacity onPress={handleSkip}>
                 <Text style={styles.skipbtn}>Skip</Text>
@@ -80,23 +80,18 @@ export default function Onboard({ navigation }) {
         ref={sliderRef}
         data={slides}
         renderItem={renderItem}
-        onSlideChange={(index) => setCurrentIndex(index)}
+        onSlideChange={index => setCurrentIndex(index)}
         dotStyle={styles.dotStyle}
         activeDotStyle={styles.activeDotStyle}
         showNextButton={false}
         showDoneButton={false}
       />
 
-      
-
-        <TouchableOpacity onPress={handleNext} style={styles.btncontainer}>
-        
-          <Text style={styles.btn}>{currentIndex === slides.length - 1 ? "Get Started" : "next"}</Text>
-          
-        </TouchableOpacity>
-       
-
-     
+      <TouchableOpacity onPress={handleNext} style={styles.btncontainer}>
+        <Text style={styles.btn}>
+          {currentIndex === slides.length - 1 ? 'Get Started' : 'next'}
+        </Text>
+      </TouchableOpacity>
     </SafeAreaView>
   );
 }

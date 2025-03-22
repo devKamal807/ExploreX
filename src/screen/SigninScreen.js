@@ -20,6 +20,12 @@ import React, {useState} from 'react';
 import auth from '@react-native-firebase/auth';
 import {useNavigation} from '@react-navigation/native';
 
+
+import Mail from '../assets/svgimages/Mail.svg'
+import Lock from '../assets/svgimages/Lock.svg'
+import Back from '../assets/svgimages/Backarrow.svg'
+import Eye from '../assets/svgimages/Eye.svg'
+
 const {width, height} = Dimensions.get('window');
 const fontSize = size => PixelRatio.getFontScale() * size;
 
@@ -47,9 +53,7 @@ export default function SigninScreen() {
       setModalVisible(true);
     } catch (error) {
       console.error('Sign-in error:', error);
-    
       let errorMessage = 'Something went wrong. Please try again later.';
-    
       if (error.code === 'auth/invalid-email') {
         errorMessage = 'Invalid email address. Please check and try again.';
       } else if (error.code === 'auth/wrong-password') {
@@ -57,10 +61,8 @@ export default function SigninScreen() {
       } else if (error.code === 'auth/user-not-found') {
         errorMessage = 'No account found with this email.';
       }
-    
       Alert.alert('Sign-in failed', errorMessage);
     }
-    
   };
   return (
     <SafeAreaView style={styles.container}>
@@ -76,11 +78,8 @@ export default function SigninScreen() {
               source={require('../assets/Images/map.png')}
               style={styles.mapimg}>
               <View style={styles.backcontainer}>
-                <TouchableOpacity onPress={()=>navigation.goBack()}>
-                  <Image
-                    source={require('../assets/Images/backarrow.png')}
-                    style={styles.backimg}
-                  />
+                <TouchableOpacity onPress={() => navigation.goBack()}>
+                 <Back width={24} height={22}/>
                 </TouchableOpacity>
               </View>
               <View style={styles.txtcontainer}>
@@ -98,10 +97,7 @@ export default function SigninScreen() {
           <View style={styles.mailcontainer}>
             <Text style={styles.label}>Email</Text>
             <View style={styles.mailtxtinputcontainer}>
-              <Image
-                source={require('../assets/Images/mail.png')}
-                style={styles.inputicon}
-              />
+             <Mail height={18} width={18}/>
               <TextInput
                 style={styles.mailinput}
                 value={mail}
@@ -116,10 +112,7 @@ export default function SigninScreen() {
           <View style={styles.mailcontainer}>
             <Text style={styles.label}>Password</Text>
             <View style={styles.mailtxtinputcontainer}>
-              <Image
-                source={require('../assets/Images/lock.png')}
-                style={styles.inputicon}
-              />
+             <Lock height={18} width={18}/>
               <TextInput
                 style={styles.mailinput}
                 value={password}
@@ -129,7 +122,7 @@ export default function SigninScreen() {
                 secureTextEntry={secureText}
               />
               <TouchableOpacity onPress={() => setSecureText(!secureText)}>
-                <Image source={require('../assets/Images/passeye.png')} />
+                <Eye height={24} width={24}/>
               </TouchableOpacity>
             </View>
           </View>
@@ -163,13 +156,12 @@ export default function SigninScreen() {
             </Text>
           </View>
 
-          
-            <TouchableOpacity onPress={handleSignIn} style={styles.pwdbtncontainer}>
-         
-              <Text style={styles.pwdbtn}>Sign in</Text>
-           
-            </TouchableOpacity>
-          
+          <TouchableOpacity
+            onPress={handleSignIn}
+            style={styles.pwdbtncontainer}>
+            <Text style={styles.pwdbtn}>Sign in</Text>
+          </TouchableOpacity>
+
           <View>
             <Modal
               animationType="slide"

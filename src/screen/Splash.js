@@ -7,6 +7,7 @@ import {
   Text,
   View,
 } from 'react-native';
+import AppLogo from '../assets/svgimages/AppLogo.svg'
 
 const {width, height} = Dimensions.get('window');
 
@@ -18,7 +19,8 @@ export default function Splash() {
           source={require('../assets/Images/map.png')}
           style={styles.mapimg}>
           <View style={styles.logocontainer}>
-            <Image source={require('../assets/Images/Logox.png')} />
+            {/* <Image source={require('../assets/svgimages/appLogo.svg')} /> */}
+            <AppLogo/>
           </View>
         </ImageBackground>
       </View>

@@ -15,6 +15,11 @@ import {GoogleSignin} from '@react-native-google-signin/google-signin';
 import auth from '@react-native-firebase/auth';
 import {useNavigation} from '@react-navigation/native';
 
+import Bluelogo from '../assets/svgimages/Bluelogo.svg'
+import Google from '../assets/svgimages/Google.svg'
+import Facebook from '../assets/svgimages/Facebook.svg'
+import Apple from '../assets/svgimages/Apple.svg'
+
 const {width, height} = Dimensions.get('window');
 const fontSize = size => PixelRatio.getFontScale() * size;
 
@@ -56,7 +61,8 @@ export default function GoogleLoginScreen() {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.logocontainer}>
-        <Image source={require('../assets/Images/bluelogo.png')} />
+        {/* <Image source={require('../assets/Images/bluelogo.png')} /> */}
+        <Bluelogo/>
       </View>
       <View style={styles.txtcontainer}>
         <Text style={styles.txt}>Let’s Get You Started With ExploreX</Text>
@@ -64,40 +70,29 @@ export default function GoogleLoginScreen() {
 
       <View style={styles.logbtncontainer}>
         <TouchableOpacity style={styles.google} onPress={signInWithGoogle}>
-          <Image
-            source={require('../assets/Images/google.png')}
-            style={styles.icon}
-          />
+         
+          <Google width={40} height={40} style={styles.icon}/>
           <Text style={styles.lgnTxtDark}>Sign In Using Google Account</Text>
         </TouchableOpacity>
 
         <TouchableOpacity style={styles.facebook}>
-          <Image
-            source={require('../assets/Images/facebook.png')}
-            style={styles.icon}
-          />
+        <Facebook width={46} height={46} style={styles.icon}/>
           <Text style={styles.lgnTxtDark}>Sign In Using Facebook Account</Text>
         </TouchableOpacity>
 
         <TouchableOpacity style={styles.apple}>
-          <Image
-            source={require('../assets/Images/apple.png')}
-            style={styles.icon}
-          />
+          <Apple width={46} height={46} style={styles.icon}/>
           <Text style={styles.lgnTxtDark}>Sign In Using Apple Account</Text>
         </TouchableOpacity>
       </View>
 
-      
-        <TouchableOpacity
-          onPress={() => {
-            navigation.navigate('SigninScreen');
-          }} style={styles.pwdbtncontainer}>
-           
-          <Text style={styles.pwdbtn}>Sign in Using Password</Text>
-        
-        </TouchableOpacity>
-      
+      <TouchableOpacity
+        onPress={() => {
+          navigation.navigate('SigninScreen');
+        }}
+        style={styles.pwdbtncontainer}>
+        <Text style={styles.pwdbtn}>Sign in Using Password</Text>
+      </TouchableOpacity>
 
       <View style={styles.registercontainer}>
         <Text style={styles.lnktxt}>
@@ -204,9 +199,9 @@ const styles = StyleSheet.create({
     borderColor: '#DADADA17',
   },
   icon: {
-    width: width * 0.09,
-    height: width * 0.09,
-    resizeMode: 'contain',
+    // width: width * 0.08,
+    // height: width * 0.2,
+    // resizeMode: 'contain',
     marginRight: width * 0.05,
   },
   lgnTxtDark: {

@@ -18,6 +18,11 @@ import React, {useState} from 'react';
 import {useNavigation} from '@react-navigation/native';
 import auth from '@react-native-firebase/auth';
 
+import Mail from '../assets/svgimages/Mail.svg'
+import Lock from '../assets/svgimages/Lock.svg'
+import Back from '../assets/svgimages/Backarrow.svg'
+import Eye from '../assets/svgimages/Eye.svg'
+
 const {width, height} = Dimensions.get('window');
 const fontSize = size => PixelRatio.getFontScale() * size;
 
@@ -65,10 +70,7 @@ export default function Signup() {
               style={styles.mapimg}>
               <View style={styles.backcontainer}>
                 <TouchableOpacity onPress={() => navigation.goBack()}>
-                  <Image
-                    source={require('../assets/Images/backarrow.png')}
-                    style={styles.backimg}
-                  />
+                  <Back width={24} height={22}/>
                 </TouchableOpacity>
               </View>
               <View style={styles.txtcontainer}>
@@ -85,10 +87,7 @@ export default function Signup() {
           <View style={styles.mailcontainer}>
             <Text style={styles.label}>Email</Text>
             <View style={styles.mailtxtinputcontainer}>
-              <Image
-                source={require('../assets/Images/mail.png')}
-                style={styles.inputicon}
-              />
+            <Mail height={18} width={18}/>
               <TextInput
                 style={styles.mailinput}
                 value={mail}
@@ -103,10 +102,7 @@ export default function Signup() {
           <View style={styles.mailcontainer}>
             <Text style={styles.label}>Password</Text>
             <View style={styles.mailtxtinputcontainer}>
-              <Image
-                source={require('../assets/Images/lock.png')}
-                style={styles.inputicon}
-              />
+              <Lock height={18} width={18}/>
               <TextInput
                 style={styles.mailinput}
                 value={password}
@@ -116,18 +112,16 @@ export default function Signup() {
                 secureTextEntry={secureText}
               />
               <TouchableOpacity onPress={() => setSecureText(!secureText)}>
-                <Image source={require('../assets/Images/passeye.png')} />
+                 <Eye height={24} width={24}/>
               </TouchableOpacity>
             </View>
           </View>
 
-          
-            <TouchableOpacity onPress={() => registerUser(mail, password)} style={styles.pwdbtncontainer}>
-            
-              <Text style={styles.pwdbtn}>Create</Text>
-          
-            </TouchableOpacity>
-          
+          <TouchableOpacity
+            onPress={() => registerUser(mail, password)}
+            style={styles.pwdbtncontainer}>
+            <Text style={styles.pwdbtn}>Create</Text>
+          </TouchableOpacity>
         </ScrollView>
       </KeyboardAvoidingView>
     </SafeAreaView>
