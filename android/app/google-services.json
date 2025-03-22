@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "301154506915",
+    "project_id": "explorex-29812",
+    "storage_bucket": "explorex-29812.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:301154506915:android:bf3d8fbaae407f7be34716",
+        "android_client_info": {
+          "package_name": "com.explorex"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "301154506915-19aoe71rhr3n5vhlamrebekl10ctrej7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.explorex",
+            "certificate_hash": "29f47ef0f9d4d0e5a55ba17ce8c648f64550da6a"
+          }
+        },
+        {
+          "client_id": "301154506915-8lhtj9cd2g0uj96piasld8q3t0ttosc1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.explorex",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "301154506915-vb2u094d6c98emef0kp10peprqtrsf2h.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBOyYBxOBFCCgW_80wTGTGXVmw7YxxJMFw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "301154506915-vb2u094d6c98emef0kp10peprqtrsf2h.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
