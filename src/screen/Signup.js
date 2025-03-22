@@ -122,10 +122,10 @@ export default function Signup() {
           </View>
 
           
-            <TouchableOpacity onPress={() => registerUser(mail, password)}>
-            <View style={styles.pwdbtncontainer}>
+            <TouchableOpacity onPress={() => registerUser(mail, password)} style={styles.pwdbtncontainer}>
+            
               <Text style={styles.pwdbtn}>Create</Text>
-              </View>
+          
             </TouchableOpacity>
           
         </ScrollView>

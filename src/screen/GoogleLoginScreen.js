@@ -92,10 +92,10 @@ export default function GoogleLoginScreen() {
         <TouchableOpacity
           onPress={() => {
             navigation.navigate('SigninScreen');
-          }}>
-            <View style={styles.pwdbtncontainer}>
+          }} style={styles.pwdbtncontainer}>
+           
           <Text style={styles.pwdbtn}>Sign in Using Password</Text>
-          </View>
+        
         </TouchableOpacity>
       
 

@@ -88,12 +88,13 @@ export default function Onboard({ navigation }) {
       />
 
       
-      
-        <TouchableOpacity onPress={handleNext}>
-        <View style={styles.btncontainer}>
+
+        <TouchableOpacity onPress={handleNext} style={styles.btncontainer}>
+        
           <Text style={styles.btn}>{currentIndex === slides.length - 1 ? "Get Started" : "next"}</Text>
-          </View>
+          
         </TouchableOpacity>
+       
 
      
     </SafeAreaView>

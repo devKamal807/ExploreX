@@ -47,8 +47,20 @@ export default function SigninScreen() {
       setModalVisible(true);
     } catch (error) {
       console.error('Sign-in error:', error);
-      Alert.alert('Sign-in failed', error.message);
+    
+      let errorMessage = 'Something went wrong. Please try again later.';
+    
+      if (error.code === 'auth/invalid-email') {
+        errorMessage = 'Invalid email address. Please check and try again.';
+      } else if (error.code === 'auth/wrong-password') {
+        errorMessage = 'Incorrect password. Please try again.';
+      } else if (error.code === 'auth/user-not-found') {
+        errorMessage = 'No account found with this email.';
+      }
+    
+      Alert.alert('Sign-in failed', errorMessage);
     }
+    
   };
   return (
     <SafeAreaView style={styles.container}>
@@ -152,10 +164,10 @@ export default function SigninScreen() {
           </View>
 
           
-            <TouchableOpacity onPress={handleSignIn}>
-            <View style={styles.pwdbtncontainer}>
+            <TouchableOpacity onPress={handleSignIn} style={styles.pwdbtncontainer}>
+         
               <Text style={styles.pwdbtn}>Sign in</Text>
-              </View>
+           
             </TouchableOpacity>
           
           <View>
