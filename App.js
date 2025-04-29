@@ -9,12 +9,43 @@ import Onboard from './src/screen/Onboard';
 import GoogleLoginScreen from './src/screen/GoogleLoginScreen';
 import SigninScreen from './src/screen/SigninScreen';
 import Signup from './src/screen/Signup';
+import crashlytics from '@react-native-firebase/crashlytics';
+import analytics from '@react-native-firebase/analytics';
+import installations from '@react-native-firebase/installations';
 
 const Stack = createNativeStackNavigator();
 
 export default function App() {
   const [isFirstLaunch, setIsFirstLaunch] = useState(null);
   const [splashLogo, setSplashLogo] = useState(true);
+  const [installationId, setInstallationId] = useState(null);
+
+  // const testCrash = () => {
+  //   crashlytics().log('Testing Crashlytics');
+  //   crashlytics().crash();
+  // };
+
+
+ 
+
+async function logEvent() {
+  await analytics().logEvent('app_opened', {
+    screen: 'GoogleLoginScreen',
+    user_id: '5',
+  });
+}
+
+const fetchInstallationId = async () => {
+  try {
+    const id = await installations().getId();
+    setInstallationId(id);
+    console.log('Firebase Installation ID:', id);
+  } catch (error) {
+    console.error('Error fetching Installation ID:', error);
+  }
+};
+
+
 
   useEffect(() => {
     const initializeApp = async () => {
@@ -36,6 +67,11 @@ export default function App() {
     };
 
     initializeApp();
+
+    // testCrash();
+    logEvent();
+    fetchInstallationId();
+    
   }, []);
 
   if (splashLogo || isFirstLaunch === null) {

@@ -20,6 +20,8 @@ import Google from '../assets/svgimages/Google.svg'
 import Facebook from '../assets/svgimages/Facebook.svg'
 import Apple from '../assets/svgimages/Apple.svg'
 
+
+
 const {width, height} = Dimensions.get('window');
 const fontSize = size => PixelRatio.getFontScale() * size;
 
@@ -58,6 +60,8 @@ export default function GoogleLoginScreen() {
       }
     }
   };
+  
+  
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.logocontainer}>
@@ -193,7 +197,7 @@ const styles = StyleSheet.create({
     height: height * 0.07,
     backgroundColor: '#1F222A',
     borderRadius: 10,
-    justifyContent: 'center',
+    justifyContent: 'space-between',
     marginVertical: height * 0.01,
     borderWidth: 1,
     borderColor: '#DADADA17',
